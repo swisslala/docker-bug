@@ -1,0 +1,10 @@
+FROM node:12.18.4-stretch-slim
+
+# here we make an assumption (and force it) that the consuming project will use the builder as my-builder (see Dockerfile)
+ONBUILD COPY --from=my-builder ./compile.test ./
+
+#real scenario would be to copy result of npm run build
+#ONBUILD COPY --from=my-builder ./build/ ./
+
+# do some final stuff
+ONBUILD RUN echo "DONE"

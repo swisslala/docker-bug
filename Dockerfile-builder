@@ -1,0 +1,5 @@
+FROM node:12.18.4-stretch-slim
+
+ONBUILD COPY ./compile.test ./
+# do stuff in the context of the project
+#ONBUILD RUN npm run build
